@@ -1,5 +1,12 @@
 import java.util.Scanner;
 public class Ejercicio_2 { 
+//Ejercicio 2 — Tienda de barrio
+//Una tienda de barrio vende productos al por menor. El cajero necesita calcular:
+//Precio unitario de un producto (double)
+//Cantidad comprada (int)
+//Descuento aplicado en porcentaje (double)
+//Total a pagar después del descuento
+//Declara las variables, realiza el cálculo y muestra el resultado por consola.
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         int Precio_Pan = 500;
