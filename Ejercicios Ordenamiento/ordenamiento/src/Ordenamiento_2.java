@@ -9,34 +9,31 @@ public class Ordenamiento_2 {
 //Visualización Paso a Paso: En cada ciclo del ordenamiento, el programa debe imprimir cómo va quedando el arreglo (ej: [10, 25, 5, 30] -> [5, 10, 25, 30]). Esto permite al estudiante ver cómo los elementos se desplazan para abrir espacio al nuevo valor.
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese la cantidad de libros: ");
+        System.out.print("Ingrese la cantidad de libros: ");
         int cantidadLibros = sc.nextInt();
+
         int[] codigosLibros = new int[cantidadLibros];
 
-        for (int i=0; i<cantidadLibros; i++){
-            System.out.println("Ingrese el cdigo del libro " + (i+1) + ": ");
-            codigosLibros[i] = sc.nextInt();
-            System.out.println("Agregado Correctamente");
-            for (int codigo : codigosLibros) {
-                System.out.print("[" + codigo + "] ");
-            }
-            System.out.println();
-        }
-        
-        for (int i = 1; i < codigosLibros.length; i++) {
-            int clave = codigosLibros[i];
-            int j = i - 1;
+        for (int i = cantidadLibros - 1; i >= 0; i--) {
 
-            while (j >= 0 && codigosLibros[j] > clave) {
-                codigosLibros[j + 1] = codigosLibros[j];
-                j--;
+            System.out.print("Ingrese el codigo del libro: ");
+            int codigo = sc.nextInt();
+
+            int j = i + 1;
+
+            while (j < cantidadLibros && codigosLibros[j] < codigo) {
+                codigosLibros[j - 1] = codigosLibros[j];
+                j++;
             }
-            codigosLibros[j + 1] = clave;
-            System.out.print("Estado del arreglo despus de insertar el libro " + (i + 1) + ": ");
-            for (int k = 0; k < codigosLibros.length; k++) {
+            codigosLibros[j - 1] = codigo;
+            System.out.print("Estado del arreglo: [ ");
+            for (int k = 0; k < cantidadLibros; k++) {
                 System.out.print(codigosLibros[k] + " ");
             }
-            System.out.println();
+            System.out.println("]");
         }
+
+        sc.close();
     }
 }
+
