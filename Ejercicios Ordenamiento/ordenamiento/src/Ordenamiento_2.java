@@ -16,6 +16,11 @@ public class Ordenamiento_2 {
         for (int i=0; i<cantidadLibros; i++){
             System.out.println("Ingrese el cdigo del libro " + (i+1) + ": ");
             codigosLibros[i] = sc.nextInt();
+            System.out.println("Agregado Correctamente");
+            for (int codigo : codigosLibros) {
+                System.out.print("[" + codigo + "] ");
+            }
+            System.out.println();
         }
         
         for (int i = 1; i < codigosLibros.length; i++) {
