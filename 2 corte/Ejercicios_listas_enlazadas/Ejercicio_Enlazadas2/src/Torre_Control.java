@@ -67,7 +67,6 @@ public class Torre_Control {
 
             Vuelo nuevo = new Vuelo(numeroVuelo, aerolinea, combustible, pasajeros);
 
-            // Si tiene menos de 10 de combustible, va al inicio automáticamente
             if (combustible < 10) {
                 System.out.println("Emergencia detectada: combustible critico. Vuelo movido al inicio.");
                 nuevo.setSiguiente(cabeza);
