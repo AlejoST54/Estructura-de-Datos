@@ -17,9 +17,8 @@ public class App {
             System.out.println("   GALERIA INTERACTIVA — Menú Principal");
             System.out.println("==============================================");
             System.out.println("  [1] Agregar Fotos");
-            System.out.println("  [2] Reproducir Galería");
-            System.out.println("  [4] Siguiente Foto");
-            System.out.println("  [5] Foto Anterior");
+            System.out.println("  [2] Siguiente Foto");
+            System.out.println("  [3] Foto Anterior");
             System.out.println();
             System.out.println("  [0] Salir");
             System.out.println("==============================================");
@@ -46,19 +45,12 @@ public class App {
                     break;
                 case 2:
                     if (cambioActual != null) {
-                        cambioActual.reproducirGaleria();
-                    } else {
-                        System.out.println("No hay fotos en la galería para reproducir.");
-                    }
-                    break;
-                case 3:
-                    if (cambioActual != null) {
                         cambioActual.siguienteFoto();
                     } else {
                         System.out.println("No hay fotos en la galería para avanzar.");
                     }
                     break; 
-                case 4:
+                case 3:
                     if (cambioActual != null) {
                         cambioActual.fotoAnterior();
                     } else {

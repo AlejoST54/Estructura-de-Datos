@@ -7,22 +7,6 @@ public class Galeria {
         this.cola = null;
     }
 
-    public void reproducirGaleria(){
-        Fotografia actual = cabeza;
-        System.out.println("Reproduciendo galería hacia adelante:");
-        while (actual != null) {
-            System.out.println("Foto: " + actual + ", Tamaño: " + actual+ "MB, Resolución: " + actual);
-            actual = actual.siguiente;
-        }
-
-        System.out.println("Reproduciendo galería hacia atrás:");
-        actual = cola;
-        while (actual != null) {
-            System.out.println("Foto: " + actual + ", Tamaño: " + actual + "MB, Resolución: " + actual);
-            actual = actual.anterior;
-        }
-    }
-
     public void agregarFoto(Fotografia nuevaFoto) {
         if (cabeza == null) {
             cabeza = nuevaFoto;
@@ -33,8 +17,31 @@ public class Galeria {
             cola = nuevaFoto;
         }
     }
-    
 
+    public void siguienteFoto() {
+        if (cabeza == null) {
+            System.out.println("No hay fotos en la galería.");
+            return;
+        }
+        if (cabeza.siguiente != null) {
+            cabeza = cabeza.siguiente;
+            System.out.println("Siguiente foto: " + cabeza);
+        } else {
+            System.out.println("Ya estás en la última foto de la galería.");
+        }
+    }
 
+    public void fotoAnterior() {
+        if (cabeza == null) {
+            System.out.println("No hay fotos en la galería.");
+            return;
+        }
+        if (cabeza.anterior != null) {
+            cabeza = cabeza.anterior;
+            System.out.println("Foto anterior: " + cabeza);
+        } else {
+            System.out.println("Ya estás en la primera foto de la galería.");
+        }
+    }
 
 }
