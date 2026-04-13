@@ -18,6 +18,8 @@ public class App {
             System.out.println("==============================================");
             System.out.println("  [1] Agregar Fotos");
             System.out.println("  [2] Reproducir Galería");
+            System.out.println("  [4] Siguiente Foto");
+            System.out.println("  [5] Foto Anterior");
             System.out.println();
             System.out.println("  [0] Salir");
             System.out.println("==============================================");
@@ -49,7 +51,19 @@ public class App {
                         System.out.println("No hay fotos en la galería para reproducir.");
                     }
                     break;
-
+                case 3:
+                    if (cambioActual != null) {
+                        cambioActual.siguienteFoto();
+                    } else {
+                        System.out.println("No hay fotos en la galería para avanzar.");
+                    }
+                    break; 
+                case 4:
+                    if (cambioActual != null) {
+                        cambioActual.fotoAnterior();
+                    } else {
+                        System.out.println("No hay fotos en la galería para retroceder.");
+                    }   
                 case 0:
                     System.out.println("¡Saliendo del módulo de Listas Dobles!");
                     break;
