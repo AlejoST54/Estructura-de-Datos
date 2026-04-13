@@ -10,7 +10,6 @@ public class App {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         int opcion;
-        Fotografia historial = new Fotografia();
         Galeria cambioActual = null;
 
         do {
@@ -18,8 +17,7 @@ public class App {
             System.out.println("   GALERIA INTERACTIVA — Menú Principal");
             System.out.println("==============================================");
             System.out.println("  [1] Agregar Fotos");
-            System.out.println("  [2] ");
-            System.out.println("  [3] Rehacer Cambio");
+            System.out.println("  [2] Reproducir Galería");
             System.out.println();
             System.out.println("  [0] Salir");
             System.out.println("==============================================");
@@ -30,33 +28,25 @@ public class App {
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Ingrese el texto del cambio: ");
-                    sc.nextLine(); // Consumir el salto de línea
-                    String texto = sc.nextLine();
-                    System.out.print("Ingrese el tipo de operación (Escribir/Borrar): ");
-                    String tipoOperacion = sc.nextLine();
-                    Cambio nuevoCambio = new Cambio(texto, tipoOperacion);
-                    historial.agregarCambio(nuevoCambio);
-                    cambioActual = nuevoCambio; // Mover el puntero al nuevo cambio
+                    System.out.println("¡Agregando fotos a la galería!");
+                    System.out.println("cual es el nombre del archivo de la foto?");
+                    String nombreArchivo = sc.next();
+                    System.out.println("cual es el tamaño en MB de la foto?");
+                    double tamanoMB = sc.nextDouble();
+                    System.out.println("cual es la resolución de la foto?");
+                    String resolucion = sc.next();
+                    Fotografia nuevaFoto = new Fotografia(nombreArchivo, tamanoMB, resolucion);
+                    System.out.println("Foto agregada: " + nuevaFoto.nombreArchivo + ", Tamaño: " + nuevaFoto.tamanoMB + "MB, Resolución: " + nuevaFoto.resolucion);
+                    if (cambioActual == null) {
+                        cambioActual = new Galeria();
+                    }
+                    cambioActual.agregarFoto(nuevaFoto);
                     break;
-
                 case 2:
                     if (cambioActual != null) {
-                        System.out.println("Cambio actual: " + cambioActual.texto);
-                        cambioActual = historial.deshacer(cambioActual);
-                        System.out.println("Cambio deshecho: " + cambioActual.texto);
+                        cambioActual.reproducirGaleria();
                     } else {
-                        System.out.println("No hay cambios para deshacer.");
-                    }
-                    break;
-
-                case 3:
-                    if (cambioActual != null) {
-                        System.out.println("Cambio actual: " + cambioActual.texto);
-                        cambioActual = historial.rehacer(cambioActual);
-                        System.out.println("Cambio rehecho: " + cambioActual.texto);
-                    } else {
-                        System.out.println("No hay cambios para rehacer.");
+                        System.out.println("No hay fotos en la galería para reproducir.");
                     }
                     break;
 

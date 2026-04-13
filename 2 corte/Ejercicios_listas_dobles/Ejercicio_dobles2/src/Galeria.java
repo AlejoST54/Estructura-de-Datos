@@ -22,6 +22,17 @@ public class Galeria {
             actual = actual.anterior;
         }
     }
+
+    public void agregarFoto(Fotografia nuevaFoto) {
+        if (cabeza == null) {
+            cabeza = nuevaFoto;
+            cola = nuevaFoto;
+        } else {
+            cola.siguiente = nuevaFoto;
+            nuevaFoto.anterior = cola;
+            cola = nuevaFoto;
+        }
+    }
     
 
 
