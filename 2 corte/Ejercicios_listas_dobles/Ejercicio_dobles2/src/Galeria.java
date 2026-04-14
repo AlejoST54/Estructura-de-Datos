@@ -44,4 +44,17 @@ public class Galeria {
         }
     }
 
+    public void reproducirGaleria() {
+        if (cabeza == null) {
+            System.out.println("No hay fotos en la galería para reproducir.");
+            return;
+        }
+        System.out.println("Reproduciendo galería:");
+        Fotografia actual = cabeza;
+        while (actual != null) {
+            System.out.println(actual);
+            actual = actual.siguiente;
+        }
+    }
+
 }
