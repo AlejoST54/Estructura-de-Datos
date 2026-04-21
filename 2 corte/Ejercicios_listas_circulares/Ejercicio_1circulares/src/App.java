@@ -18,6 +18,7 @@ public class App {
             System.out.println("\n==============================================");
             System.out.println("   Anuncios — Menú Principal");
             System.out.println("==============================================");
+            System.out.println();
             System.out.println("1. agregarAnuncio");
             System.out.println("2. mostrarAnuncios");
             System.out.println("3. reproducir");
@@ -51,7 +52,7 @@ public class App {
                     break;
                 
                 case 0:
-                    System.out.println("¡Saliendo del Menu!");
+                    System.out.println("¡Saliendo del Menu");
                     break;
                 default:
                     System.out.println("Opción no válida. Intenta de nuevo.");
