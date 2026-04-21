@@ -18,7 +18,6 @@ public class App {
             System.out.println("\n==============================================");
             System.out.println("   Anuncios — Menú Principal");
             System.out.println("==============================================");
-            System.out.println();
             System.out.println("1. agregarAnuncio");
             System.out.println("2. mostrarAnuncios");
             System.out.println("3. reproducir");
