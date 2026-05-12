@@ -2,6 +2,7 @@ public class Pieza {
     private String nombrePieza;
     private String numeroSerie;
     private boolean esDefectuosa;
+    public Pieza siguiente;
 
     public Pieza() {
     }
@@ -10,6 +11,7 @@ public class Pieza {
         this.nombrePieza = nombrePieza;
         this.numeroSerie = numeroSerie;
         this.esDefectuosa = esDefectuosa;
+        this.siguiente = null;
     }
 
     public String getNombrePieza() {

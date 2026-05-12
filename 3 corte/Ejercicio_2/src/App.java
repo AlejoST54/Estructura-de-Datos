@@ -33,9 +33,6 @@ public class App {
                 case 2:
                     System.out.print("ID: "); String id = scanner.nextLine();
                     System.out.print("Empresa: "); String emp = scanner.nextLine();
-                    System.out.print("Peso (t): "); double peso = scanner.nextDouble();
-                    scanner.nextLine();
-                    System.out.print("Tipo de Carga: "); String tipo = scanner.nextLine();
                     piezaEnsamblaje.push(new Pieza(id, emp, false)); // Suponiendo que se crea una pieza normal
                     System.out.println("Pieza apilada correctamente.");
                     break;

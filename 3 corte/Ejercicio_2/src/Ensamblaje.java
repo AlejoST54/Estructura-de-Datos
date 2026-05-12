@@ -1,28 +1,31 @@
 public class Ensamblaje {
-    private Pieza[] pila;
-    private int tope;
-    private int capacidad;
+    private Pieza tope;
+    private int tamanio;
 
     public Ensamblaje() {
-        this.capacidad = 100; // Capacidad máxima de la pila
-        this.pila = new Pieza[capacidad];
-        this.tope = -1; // Indica que la pila está vacía
+        this.tope = null;
+        this.tamanio = 0;
     }
 
-    public void push(Pieza pieza) {
-        if (tope < capacidad - 1) {
-            tope++;
-            pila[tope] = pieza;
-        } else {
-            System.out.println("La línea de ensamblaje está llena. No se pueden agregar más piezas.");
-        }
+    public boolean estaVacia() {
+        return tope == null;
+    }
+
+    public int getTamanio() {
+        return tamanio;
+    }
+
+    public void push(Pieza nueva) {
+        nueva.siguiente = tope;
+        tope = nueva;
+        tamanio++;
     }
 
     public Pieza pop() {
-        if (tope >= 0) {
-            Pieza piezaRetirada = pila[tope];
-            pila[tope] = null; // Limpia la referencia para evitar fugas de memoria
-            tope--;
+        if (!estaVacia()) {
+            Pieza piezaRetirada = tope;
+            tope = tope.siguiente;
+            tamanio--;
             return piezaRetirada;
         } else {
             System.out.println("La línea de ensamblaje está vacía. No hay piezas para retirar.");
@@ -31,9 +34,11 @@ public class Ensamblaje {
     }
 
     public void imprimir() {
-        if (tope >= 0) {
-            for (int i = tope; i >= 0; i--) {
-                System.out.println(pila[i]);
+        if (!estaVacia()) {
+            Pieza actual = tope;
+            while (actual != null) {
+                System.out.println(actual);
+                actual = actual.siguiente;
             }
         } else {
             System.out.println("La línea de ensamblaje está vacía.");
@@ -41,8 +46,8 @@ public class Ensamblaje {
     }
 
     public void limpiarHastaDefecto() {
-        while (tope >= 0) {
-            Pieza piezaActual = pila[tope];
+        while (!estaVacia()) {
+            Pieza piezaActual = tope;
             if (piezaActual.isEsDefectuosa()) {
                 System.out.println("Pieza defectuosa encontrada: " + piezaActual.getNombrePieza());
                 break;
